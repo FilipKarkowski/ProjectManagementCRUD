@@ -65,6 +65,6 @@ class AssignmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def assignment_params
-      params.require(:assignment).permit(:task_id, :user_id)
+      params.require(:assignment).permit(:user_id, :task_id)
     end
 end

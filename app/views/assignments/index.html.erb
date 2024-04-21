@@ -1,11 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Assignments</h1>
+<h1>Przypisanie zadań</h1>
 
 <div id="assignments">
   <% @assignments.each do |assignment| %>
-    <%= render assignment %>
     <p>
+      <strong>User:</strong> <%= assignment.user.name %><br>
+      <strong>Task:</strong> <%= assignment.task.name %><br>
       <%= link_to "Show this assignment", assignment %>
     </p>
   <% end %>
