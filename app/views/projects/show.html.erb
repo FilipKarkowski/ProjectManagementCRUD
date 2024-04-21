@@ -1,10 +1,43 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= @project.name %></title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
 
-<%= render @project %>
+<div class="container mx-auto py-8">
+  <% if notice %>
+    <p class="text-green-500 mb-4"><%= notice %></p>
+  <% end %>
 
-<div>
-  <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %>
+  <div class="bg-white shadow-md rounded-md p-4">
+    <%= render @project %>
 
-  <%= button_to "Destroy this project", @project, method: :delete %>
+    <div class="mt-4 flex justify-between">
+      <%= link_to "Back to projects", projects_path, class: "text-blue-500 hover:text-blue-700" %>
+      <%= link_to "Edit this project", edit_project_path(@project), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+      <%= button_to "Destroy this project", @project, method: :delete, data: { confirm: "Are you sure?" }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
+  </div>
+
+  <h3 class="text-xl font-semibold mt-8 mb-4">Tasks:</h3>
+  <% if @project.tasks.any? %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <% @project.tasks.each do |task| %>
+        <div class="bg-gray-200 p-4 rounded-md">
+          <h4 class="font-semibold"><%= task.name %></h4>
+          <p><%= task.description %></p>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No tasks for this project.</p>
+  <% end %>
 </div>
+
+</body>
+</html>

@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>ProjectManagementCrud</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strona Główna</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex">
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+<!-- Boczny Navbar -->
+<nav class="bg-gray-800 text-white p-4 flex flex-col h-screen">
+  <a href="/projects" class="mb-4">Projekty</a>
+  <a href="/tasks" class="mb-4">Zadania</a>
+  <a href="/users" class="mb-4">Użytkownicy</a>
+  <a href="/assignments" class="mb-4">Przypisania</a>
+</nav>
 
-  <body>
-    <%= yield %>
-  </body>
+<div class="flex-grow">
+  <%= yield %>
+</div>
+
+</body>
 </html>
