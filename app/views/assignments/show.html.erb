@@ -1,10 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<p class="text-green-500"><%= notice %></p>
 
 <%= render @assignment %>
 
-<div>
-  <%= link_to "Edit this assignment", edit_assignment_path(@assignment) %> |
-  <%= link_to "Back to assignments", assignments_path %>
-
-  <%= button_to "Destroy this assignment", @assignment, method: :delete %>
+<div class="mt-4 flex justify-center">
+  <%= link_to "Edytuj to przypisanie", edit_assignment_path(@assignment), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+  <%= link_to "Powrót do przypisań", assignments_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+  <%= button_to "Usuń to przypisanie", @assignment, method: :delete, data: { confirm: "Czy na pewno chcesz usunąć to przypisanie?" }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
 </div>

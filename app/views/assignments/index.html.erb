@@ -1,15 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mx-auto py-8">
+  <p class="text-green-500"><%= notice %></p>
 
-<h1>Przypisanie zadań</h1>
+  <h1 class="text-3xl font-semibold">Przypisanie zadań</h1>
 
-<div id="assignments">
-  <% @assignments.each do |assignment| %>
-    <p>
-      <strong>User:</strong> <%= assignment.user.name %><br>
-      <strong>Task:</strong> <%= assignment.task.name %><br>
-      <%= link_to "Show this assignment", assignment %>
-    </p>
-  <% end %>
+  <div id="assignments" class="mt-4">
+    <% @assignments.each do |assignment| %>
+      <div class="bg-white shadow-md rounded-md p-4 mb-4">
+        <p>
+          <strong>Użytkownik:</strong> <%= assignment.user.name %><br>
+          <strong>Zadanie:</strong> <%= assignment.task.name %><br>
+          <%= link_to "Pokaż to przypisanie", assignment, class: "text-blue-500 hover:text-blue-700" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Nowe przypisanie", new_assignment_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 </div>
-
-<%= link_to "New assignment", new_assignment_path %>

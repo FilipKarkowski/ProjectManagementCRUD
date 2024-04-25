@@ -1,11 +1,12 @@
-# app/models/user.rb
 class User < ApplicationRecord
-  has_many :assignments
+  has_many :assignments, dependent: :destroy
   has_many :tasks, through: :assignments
-end
 
-# app/models/task.rb
-class Task < ApplicationRecord
-  has_many :assignments
-  has_many :users, through: :assignments
+  before_destroy :clear_assignments
+
+  private
+
+  def clear_assignments
+    self.assignments.destroy_all
+  end
 end

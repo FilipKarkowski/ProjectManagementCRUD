@@ -1,14 +1,20 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mx-auto py-8">
+  <p class="text-green-500"><%= notice %></p>
 
-<h1>Users</h1>
+  <h1 class="text-3xl font-semibold">Użytkownicy</h1>
 
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
+  <div id="users" class="mt-4 grid grid-cols-1 gap-4">
+    <% @users.each do |user| %>
+      <div class="bg-white shadow-md rounded-md p-4">
+        <%= render user %>
+        <p class="mt-2">
+          <%= link_to "Pokaż tego użytkownika", user, class: "text-blue-500 hover:text-blue-700" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-8">
+    <%= link_to "Nowy użytkownik", new_user_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
 </div>
-
-<%= link_to "New user", new_user_path %>

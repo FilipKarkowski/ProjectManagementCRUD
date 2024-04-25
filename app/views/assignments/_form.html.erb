@@ -1,8 +1,7 @@
 <%= form_with(model: assignment) do |form| %>
   <% if assignment.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
-
+    <div class="text-red-500">
+      <h2><%= pluralize(assignment.errors.count, "błąd") %> uniemożliwiło zapisanie tego przypisania:</h2>
       <ul>
         <% assignment.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,17 +10,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.collection_select :user_id, User.all, :id, :name %>
+  <div class="mb-4">
+    <%= form.label :user_id, "Użytkownik", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.collection_select :user_id, User.all, :id, :name, { include_blank: true }, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div>
-    <%= form.label :task_id, style: "display: block" %>
-    <%= form.collection_select :task_id, Task.all, :id, :name %>
+  <div class="mb-4">
+    <%= form.label :task_id, "Zadanie", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.collection_select :task_id, Task.all, :id, :name, { include_blank: true }, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-6">
+    <%= form.submit "Zapisz", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
   </div>
 <% end %>

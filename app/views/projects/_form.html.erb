@@ -1,22 +1,24 @@
 <%= form_with(model: project) do |form| %>
   <% if project.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+      <strong class="font-bold">Oops!</strong>
+      <span class="block sm:inline">
+        <%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:
+      </span>
       <ul>
-        <% project.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-4">
+    <%= form.label :Nazwa, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-6">
+    <%= form.submit "Zapisz", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
   </div>
 <% end %>

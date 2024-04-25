@@ -1,10 +1,11 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mx-auto py-8">
+  <p class="text-green-500"><%= notice %></p>
 
-<%= render @user %>
+  <%= render @user %>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <div class="mt-4 flex items-center">
+    <%= link_to "Edytuj tego użytkownika", edit_user_path(@user), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+    <%= link_to "Powrót do użytkowników", users_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+    <%= button_to "Usuń tego użytkownika", @user, method: :delete, data: { confirm: "Czy na pewno chcesz usunąć tego użytkownika?" }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
 </div>

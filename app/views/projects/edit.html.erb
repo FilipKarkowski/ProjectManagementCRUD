@@ -1,10 +1,10 @@
-<h1>Editing project</h1>
+<div class="text-center">
+  <h1>Edycja projektu</h1>
 
-<%= render "form", project: @project %>
+  <%= render "form", project: @project %>
 
-<br>
-
-<div>
-  <%= link_to "Show this project", @project %> |
-  <%= link_to "Back to projects", projects_path %>
+  <div class="mt-4">
+    <%= link_to "Pokaż ten projekt", @project %> |
+    <%= link_to "Powrót do projektów", projects_path %>
+  </div>
 </div>

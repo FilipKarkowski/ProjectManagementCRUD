@@ -1,10 +1,12 @@
-<h1>Editing user</h1>
+<div class="container mx-auto py-8">
+  <div class="bg-white shadow-md rounded-md p-4">
+    <h1 class="text-2xl font-semibold mb-4">Edytuj użytkownika</h1>
 
-<%= render "form", user: @user %>
+    <%= render "form", user: @user %>
 
-<br>
-
-<div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
+    <div class="mt-4 flex items-center">
+      <%= link_to "Pokaż tego użytkownika", @user, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4" %>
+      <%= link_to "Powrót do użytkowników", users_path, class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
+  </div>
 </div>

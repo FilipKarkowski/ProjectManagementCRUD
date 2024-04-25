@@ -1,12 +1,11 @@
-<div id="<%= dom_id assignment %>">
-  <p>
-    <strong>User:</strong>
-    <%= assignment.user_id %>
+<div id="<%= dom_id(assignment) %>" class="bg-white shadow-md rounded-md p-4 mb-4">
+  <p class="mb-2">
+    <strong class="text-gray-700">Uzytkownik:</strong>
+    <%= assignment.user.name %>
   </p>
 
-  <p>
-    <strong>Task:</strong>
-    <%= assignment.task_id %>
+  <p class="mb-2">
+    <strong class="text-gray-700">Zadanie:</strong>
+    <%= assignment.task.name %>
   </p>
-
 </div>

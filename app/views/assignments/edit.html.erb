@@ -1,10 +1,8 @@
-<h1>Editing assignment</h1>
+<h1>Edytuj przypisanie</h1>
 
 <%= render "form", assignment: @assignment %>
 
-<br>
-
-<div>
-  <%= link_to "Show this assignment", @assignment %> |
-  <%= link_to "Back to assignments", assignments_path %>
+<div class="mt-4">
+  <%= link_to "Pokaż to przypisanie", @assignment, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %> |
+  <%= link_to "Powrót do przypisań", assignments_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 </div>

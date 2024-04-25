@@ -1,14 +1,36 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zadania</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
 
-<h1>Tasks</h1>
-
-<div id="tasks">
-  <% @tasks.each do |task| %>
-    <%= render task %>
-    <p>
-      <%= link_to "Show this task", task %>
-    </p>
+<div class="container mx-auto py-8">
+  <% if notice %>
+    <p class="text-green-500"><%= notice %></p>
   <% end %>
+
+  <h1 class="text-3xl font-semibold">Zadania</h1>
+
+  <% @tasks.each do |task| %>
+    <div class="bg-white shadow-md rounded-md p-4">
+      <h2 class="text-lg font-semibold"><%= task.name %></h2>
+      <p class="text-gray-500">Projekt: <%= task.project.name %></p> <!-- Wyświetlenie nazwy projektu -->
+      <p class="mt-2">
+        <%= link_to "Pokaż to zadanie", task, class: "text-blue-500 hover:text-blue-700" %>
+      </p>
+    </div>
+  <% end %>
+
+
+  <div class="mt-8">
+    <%= link_to "Nowe zadanie", new_task_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
 </div>
 
-<%= link_to "New task", new_task_path %>
+</body>
+</html>

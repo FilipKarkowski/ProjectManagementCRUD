@@ -1,10 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mx-auto py-8">
+  <div class="bg-white shadow-md rounded-md p-4">
+    <div class="text-green-500 mb-4">
+      <%= notice %>
+    </div>
 
-<%= render @task %>
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-semibold">Zadanie: <%= @task.name %></h2>
+    </div>
 
-<div>
-  <%= link_to "Edit this task", edit_task_path(@task) %> |
-  <%= link_to "Back to tasks", tasks_path %>
+    <%= render @task %>
 
-  <%= button_to "Destroy this task", @task, method: :delete %>
+    <div class="mt-4 flex space-x-4">
+      <%= link_to "Edytuj to zadanie", edit_task_path(@task), class: "text-white bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-md" %>
+      <%= link_to "Powrót do zadań", tasks_path, class: "text-white bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-md" %>
+      <%= button_to "Usuń to zadanie", @task, method: :delete, data: { confirm: "Czy na pewno chcesz usunąć to zadanie?" }, class: "text-white bg-red-500 hover:bg-red-700 px-4 py-2 rounded-md" %>
+    </div>
+  </div>
 </div>

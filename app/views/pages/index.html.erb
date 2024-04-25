@@ -3,12 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Strona Główna</title>
+  <title>System Zarządzania Projektami</title>
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Animacje -->
+  <style>
+      @keyframes fadeIn {
+          from {
+              opacity: 0;
+          }
+          to {
+              opacity: 1;
+          }
+      }
+  </style>
 </head>
+<body class="bg-gray-100">
 
+<div class="flex flex-col items-center justify-center min-h-screen">
+  <h1 class="text-4xl font-bold text-gray-800 mb-8">System Zarządzania Projektami</h1>
+  <p class="text-lg text-gray-600 mb-8">Witaj w systemie zarządzania projektami. Zarządzaj swoimi projektami, dodawaj zadania, przypisuj użytkowników i wiele więcej!</p>
+  <a href="/projects" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">Przejdź do projektów</a>
+</div>
 
+<script>
+    // Animacja po załadowaniu strony
+    document.addEventListener('DOMContentLoaded', function() {
+        const mainContent = document.querySelector('.flex');
+        mainContent.style.animation = 'fadeIn 0.5s ease-in-out';
+    });
+</script>
 
 </body>
 </html>
