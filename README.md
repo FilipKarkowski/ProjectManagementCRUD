@@ -1,2 +1,2 @@
 # ProjectManagementCRUD
- CRUD app using rails and bootstrap
+Project Managment app RubyOnRails + Tailwind 
